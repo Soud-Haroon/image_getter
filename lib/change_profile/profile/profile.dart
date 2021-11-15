@@ -19,7 +19,7 @@ class _ImageGetterState extends State<ImageGetter> {
       if (image == null) return;
 
       File imageTemp = File(image.path);
-      
+
       setState(() {
         this.image = imageTemp;
         // saveImage(this.image);
@@ -46,7 +46,8 @@ class _ImageGetterState extends State<ImageGetter> {
           //=======================================//
           SizedBox(height: 10),
           imagePath != null
-              ? CircleAvatar(backgroundImage: FileImage(File(imagePath!)),radius: 40)
+              ? CircleAvatar(
+                  backgroundImage: FileImage(File(imagePath!)), radius: 40)
               : CircleAvatar(
                   radius: (40),
                   backgroundColor: Colors.transparent,
@@ -77,7 +78,10 @@ class _ImageGetterState extends State<ImageGetter> {
                             new ListTile(
                               leading: new Icon(Icons.image),
                               title: new Text('Gallery'),
-                              onTap: () => pickImage(),
+                              onTap: () {
+                                Navigator.pop(context);
+                                pickImage();
+                              },
                             ),
                           ],
                         ),
